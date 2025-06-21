@@ -114,7 +114,7 @@ export const useGameStore = create<GameState>()(
     },
     advanceTime: (days: number) => {
       set((s) => {
-        s.calendar.setDate(s.calendar.getDate() + days);
+        s.calendar = new Date(s.calendar.getTime() + days * 24 * 60 * 60 * 1000);
 
         // Monthly salary
         if (s.calendar.getDate() === 1) {
